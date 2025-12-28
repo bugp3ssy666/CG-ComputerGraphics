@@ -5,6 +5,8 @@
 #include "MACGrid3d.h"
 #include "Configure.h"
 
+#include <vector>
+
 namespace FluidSimulation
 {
 	namespace Eulerian3d
@@ -16,6 +18,11 @@ namespace FluidSimulation
 
 			void solve();
 
+		protected:
+			void advect();
+			void addExternalForces();
+			void project();
+			void solvePressure(std::vector<double> &pressure);
 
 		protected:
 			MACGrid3d &mGrid;
